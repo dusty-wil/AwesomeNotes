@@ -1,7 +1,7 @@
 # basic datasource stuff
 spring.datasource.url=jdbc:postgresql://localhost:5432/awesomenotes
-spring.datasource.username=postgres
-spring.datasource.password=dusty@smithis#1
+spring.datasource.username=
+spring.datasource.password=
 
 # we're using 12, but maybe this will be ok. helps hibernate write better SQL
 spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL10Dialect
