@@ -1,0 +1,25 @@
+.header
+{
+    padding: 10px 20px;
+    background-color: orange;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.header a
+{
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 15px 10px;
+    font-size: 14px;
+    margin: 5px;
+    color: #FFFFFF;
+}
+
+
+.header-buttons
+{
+    display: block;
+    float: right;
+    margin: 10px;
+}

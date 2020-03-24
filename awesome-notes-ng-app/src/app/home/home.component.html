@@ -1,0 +1,12 @@
+<div class="container justify-content-center">
+    <h1>Welcome!</h1>
+    <ul class="note-list" *ngIf="isAuthenticated">
+        <li class="row" *ngFor="let note of notes | async">
+            <h4>{{ note.title }}</h4>
+            <p><b>Added:</b> {{ note.createdDate }}</p>
+            <p *ngIf="note.updateDate"><b>Updated:</b> {{ note.updateDate }}</p>
+            <p><b>Content:</b> {{ note.content }}</p>
+            <p><a href="/add-note/{{ note.id }}">Edit</a> | <a href="javascript:;" (click)="delete(note.id)">Delete</a></p>
+        </li>
+    </ul>
+</div>    

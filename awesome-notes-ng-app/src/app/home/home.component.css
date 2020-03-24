@@ -1,0 +1,16 @@
+.note-list {
+    margin-top: 30px;
+}
+
+.note-list li
+{
+    border-bottom: 1px solid #DEDEDE;
+    margin-bottom: 10px;
+}
+
+.note-list li p
+{
+    display: block;
+    width: 100%;
+    margin-bottom: 3px;
+}

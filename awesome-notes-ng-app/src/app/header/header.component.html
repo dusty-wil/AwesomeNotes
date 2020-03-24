@@ -1,0 +1,14 @@
+<div class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6"><h1>AwesomeNotes</h1></div>
+            <div class="col-md-6">
+                <a href="/home" class="new-post btn btn-default">Home</a>
+                <a href="/add-note" class="new-post btn btn-default" *ngIf="isAuthenticated">New Note</a>
+                <a href="/login" class="login btn btn-default" *ngIf="!isAuthenticated">Login</a>
+                <a href="/register" class="register btn btn-default" *ngIf="!isAuthenticated">Register</a>
+                <a href="javascript:;" (click)="logout()" class="logout btn btn-default" *ngIf="isAuthenticated">Logout</a>
+            </div>
+        </div>
+    </div>
+</div>
