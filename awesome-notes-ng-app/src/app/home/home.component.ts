@@ -11,27 +11,27 @@ import { Observable } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  isAuthenticated: any;
+  isAuthenticated: boolean;
   notes: Observable<Array<NoteRequest>>;
 
   constructor(
     private authService: AuthService,
     private noteService: AddNoteService
-  ) {
-    this.isAuthenticated = false;
-   }
+  ) { }
 
   ngOnInit(): void {
-    this.isAuthenticated = this.authService.isAuthenticated();
+    this.authService.isAuthenticated().subscribe((value) => {
+        this.isAuthenticated = value;
+    });
+    
     if (this.isAuthenticated) {
         this.notes = this.noteService.getAllNotes();
     }  
-
   }
 
   delete(noteId): void {
     this.noteService.deleteNote(noteId).subscribe(data => {
-        console.log(data)
+        this.notes = this.noteService.getAllNotes();
       }, error => {
         console.log(error)
       })

@@ -14,16 +14,18 @@ export class HeaderComponent implements OnInit {
   constructor(
       private authService: AuthService,
       private router: Router
-  ) { 
-      this.isAuthenticated = false;
-  }
+  ) { }
 
   ngOnInit(): void {
-    this.isAuthenticated = this.authService.isAuthenticated();
+    this.authService.isAuthenticated().subscribe((value) => {
+        console.log(value);
+        this.isAuthenticated = value;
+    });
   }
 
   logout(): void {
       this.authService.logout();
+      this.isAuthenticated = false;
       this.router.navigateByUrl("/home");
   }
 }

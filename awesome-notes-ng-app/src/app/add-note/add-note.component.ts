@@ -40,12 +40,19 @@ export class AddNoteComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.addNoteService.getNote(id).subscribe(data => {
-        this.addNoteForm.get('title').setValue(data.title);
-        this.addNoteForm.get('content').setValue(data.content);
-    }, error => {
-        console.log(error)
-    })
+    
+    if (id) {
+        this.addNoteService.getNote(id).subscribe(data => {
+            if (data) {
+                this.addNoteForm.get('title').setValue(data.title);
+                this.addNoteForm.get('content').setValue(data.content);
+                this.noteRequest.id = data.id;
+            }
+        }, error => {
+            console.log(error)
+        })
+    }
+    
   }
 
   onSubmit() {
